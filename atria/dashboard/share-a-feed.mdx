@@ -1,0 +1,62 @@
+---
+title: "Share a Feed"
+description: "Publish a read-only link to a feed so anyone can view its code, live events and metrics."
+---
+
+# Share a Feed
+
+Sharing turns a feed into a public read-only page. Anyone with the link can open it without an Atria account.
+
+<video autoPlay muted loop playsInline className="w-full rounded-lg" src="/images/atria/changelog/0-8-23-feed-sharing.mp4" />
+
+## Turn Sharing On
+
+Open the feed and select **Share** in the feed header, then **Enable sharing**.
+
+![Share feed dialog with the Enable sharing action](/images/atria/dashboard/feed-share-dialog.png)
+
+You get a link in the form `https://atria.pulsy.app/feed/share/<code>`. Use the copy action next to it.
+
+Once sharing is on, the header button reads **Shared via link**.
+
+![Shared link with the copy action](/images/atria/dashboard/feed-share-link.png)
+
+## What a Visitor Sees
+
+![The shared feed page as an anonymous visitor sees it](/images/atria/dashboard/shared-feed-public-page.png)
+
+- The feed name, description and status.
+- The network it reads and the data type it handles.
+- The filter code.
+- **Live Preview**, the same stream of results you watch in your own workspace.
+- **Metrics** for the feed, including data reduction, input processed, output produced and failures.
+
+![Metrics on a shared feed](/images/atria/dashboard/shared-feed-metrics.png)
+
+## What Stays Private
+
+Outputs, webhooks, tags and deploy history are never included on the shared page.
+
+<Warning>
+Your filter code is visible to anyone who opens the link. Review it for hard-coded secrets before you enable sharing.
+</Warning>
+
+## Start From a Shared Feed
+
+A shared feed has a **Use this data** button. It copies the feed into the visitor's own workspace as a new feed, with the settings and the filter code already in place.
+
+Outputs are not copied, because they are not part of what gets shared. The new feed opens on its output step so you can add your own before you test or deploy.
+
+![Use this data on a shared feed](/images/atria/dashboard/shared-feed-use-this-data.png)
+
+The button also works for someone without an account. They are taken through sign up first, and the copied feed is waiting for them when they land.
+
+## Link Previews
+
+A shared link renders a preview card when it is pasted somewhere that unfurls links, such as Slack or X. The card carries the feed name and its network.
+
+## Turn Sharing Off
+
+Open **Share** again and select **Turn off sharing**. The link stops opening the feed.
+
+The link keeps its code, so turning sharing back on gives the same URL rather than a new one.

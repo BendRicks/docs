@@ -26,7 +26,8 @@
             "pages": [
               "atria/dashboard/create-an-output",
               "atria/dashboard/create-test-and-deploy-a-feed",
-              "atria/dashboard/manage-feeds"
+              "atria/dashboard/manage-feeds",
+              "atria/dashboard/share-a-feed"
             ]
           },
           {
@@ -79,6 +80,13 @@
               "atria/library/overview",
               "atria/library/native-transfers",
               "atria/library/erc20-transfers"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "atria/changelog/overview",
+              "atria/changelog/0-8-23"
             ]
           }
         ]

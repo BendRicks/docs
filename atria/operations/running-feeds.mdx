@@ -21,6 +21,25 @@ The cursor stores the next block to process. If the feed restarts, it resumes fr
 
 See [cursors and block delay](/atria/core-concepts/cursors-and-block-delay).
 
+## Metrics
+
+A running feed has a **Metrics** tab in its workspace. It reports what the feed has actually done over the last hour, 24 hours or 7 days.
+
+Health:
+
+- **Blocks processed** and **Outputs produced**, so you can see the feed is keeping up.
+- **Successfully delivered**, the volume that reached your outputs.
+- **Failures**.
+
+Volume:
+
+- **Data reduction**, how much smaller your output is than the raw block data it was built from.
+- **Data volume over time**, input processed against output produced.
+
+The cursor tells you how far behind the chain head a feed is. Metrics tell you whether its output is getting through.
+
+![Metrics tab on a running feed](/images/atria/dashboard/feed-metrics-tab.png)
+
 ## Pausing
 
 Feeds can be paused manually or by the system after repeated runtime or delivery failures.
