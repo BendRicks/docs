@@ -1337,8 +1337,8 @@
           },
           "intermediateSwapId": {
             "type": "string",
-            "nullable": true,
-            "deprecated": true
+            "description": "Hash of the internal intermediate swap key that correlates the inbound and outbound transactions of the swap.",
+            "nullable": true
           },
           "sourceOtherProtocolAddresses": {
             "type": "array",
