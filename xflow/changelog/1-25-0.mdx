@@ -1,0 +1,77 @@
+---
+title: "XFlow 1.25.0"
+description: "A page for every transfer, balance changes per account in the explorer and the API, and three more Bitcoin routes."
+---
+
+**Released August 26, 2026**
+
+This release gives every transfer its own page, shows the net balance change of every account that moved value in a transfer, and returns the same data through the external API.
+
+## Explorer
+
+Every transfer now has its own page in the [XFlow explorer](https://xflow.pulsy.app). The page shows the full route, including the transactions in the middle of it. It opens in its own tab, and the link can be shared and renders a preview card.
+
+![The transfer page, showing the full route of a cross-chain transfer](/images/xflow/changelog/1-25-0-transfer-page.png)
+
+Further down the page are the balance changes for the transfer. Every account that moved value on the inbound and the outbound chain, with one net amount per account and token.
+
+![The balance changes panel on a transfer page, listing every account that moved value](/images/xflow/changelog/1-25-0-balance-changes.png)
+
+Anything that looks wrong can be reported from the page itself. Pick the side and what looks wrong, and it reaches us right away.
+
+![The report incorrect data button on a transfer page and the dialog it opens](/images/xflow/changelog/1-25-0-report-incorrect-data.png)
+
+Search picks up two new ways to find a transfer:
+
+- By any account that moved value inside it. An address search no longer looks only at the sending and the receiving account.
+- By an intermediate transaction hash, so a transfer can be found by a hash from the middle of its route.
+
+Fixes in this release:
+
+- The transfers list loads faster.
+- Fixed the highlight colour on the selected row.
+
+## API changes
+
+Every transfer returned by [Get Cross-Chain Swaps](/xflow/api-reference/endpoints/get_swaps) and [Get Swaps By Identifier](/xflow/api-reference/endpoints/get_swap_by_id) now carries a `balanceChanges` array. It is the same data the transfer page shows: the net token balance change for every account that moved value in the swap.
+
+Each entry holds:
+
+- The account and the chain it is on.
+- The token and its contract address.
+- The absolute amount, in raw and in formatted form.
+- A `direction` of `SENT` or `RECEIVED`.
+
+On Solana the account in a balance change is the token account, not the wallet owner.
+
+## Expanded coverage
+
+- [TeleSwap](https://teleswap.xyz) is now tracked.
+- [Butter Swap](https://www.butterswap.io/swap) is now tracked from and to Bitcoin.
+- [Threshold](https://dashboard.threshold.network/tBTC/mint) now covers Bitcoin to Arbitrum and Bitcoin to Base, on top of the Bitcoin and Ethereum routes already tracked.
+
+The full list of tracked bridges lives on the [Supported Bridges](/xflow/supported-bridges/overview) page and on the [XFlow home page](https://xflow.pulsy.app).
+
+## Data accuracy
+
+Improved tracking for these bridges, as part of our ongoing data accuracy refinement:
+
+- [LayerZero](https://layerzero.network)
+- [Symbiosis](https://app.symbiosis.finance)
+- [Rango](https://rango.exchange)
+- [Squid Router](https://www.squidrouter.com)
+- [Butter Swap](https://www.butterswap.io/swap)
+- [Across](https://across.to/bridge)
+- [Bridgers](https://bridgers.xyz)
+- [WAN Bridge](https://bridge.wanchain.org)
+- [Relay](https://relay.link/bridge)
+
+## Bridge delistings
+
+The following bridges were delisted from active maintenance due to lack of on-chain activity:
+
+- [WBTC Protocol](https://wbtc.network)
+- [Hop](https://app.hop.exchange)
+- [Synapse](https://synapseprotocol.com)
+
+Historical data for these bridges remains available. You can still query their past transfers through the explorer and the API.
